@@ -128,54 +128,6 @@
       box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
     }
 
-    .nav-header {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: none;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      color: var(--primary);
-      font-weight: 800;
-      font-size: 18px;
-    }
-
-    .menu-toggle {
-      width: 42px;
-      height: 36px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: #ffffff;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      width: 20px;
-      height: 2px;
-      background: var(--primary);
-      border-radius: 99px;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
     .nav-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -337,57 +289,6 @@
       gap: 18px;
     }
 
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .image-card {
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .image-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-      background: #dbeafe;
-    }
-
-    .image-card-content {
-      padding: 18px;
-    }
-
-    .image-card-content h3 {
-      font-size: 18px;
-      margin-bottom: 6px;
-    }
-
-    .image-card-content p {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 0;
-    }
-
-    .small-button {
-      display: inline-block;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      color: var(--primary);
-      padding: 8px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-weight: 700;
-      margin-top: 16px;
-    }
-
-    .small-button:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
     .contact-item {
       padding: 18px;
       border-radius: 14px;
@@ -417,36 +318,6 @@
     @media (max-width: 760px) {
       header {
         padding: 70px 18px 60px;
-      }
-
-      nav {
-        padding: 12px 18px;
-      }
-
-      .nav-header {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .nav-inner {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding-top: 14px;
-      }
-
-      .nav-inner.open {
-        display: flex;
-      }
-
-      .nav-inner a {
-        width: 100%;
-        padding: 8px 0;
-        border-top: 1px solid var(--border);
       }
 
       .two-column {
@@ -488,20 +359,10 @@
   </header>
 
   <nav aria-label="Main navigation">
-    <div class="nav-header">
-      <a class="brand" href="#">Shi Cheng</a>
-      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-
-    <div class="nav-inner" id="navMenu">
+    <div class="nav-inner">
       <a href="#about">About</a>
       <a href="#education">Education</a>
       <a href="#research-focus">Research</a>
-      <a href="#visuals">Visuals</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -610,21 +471,6 @@
           <li>Analyze observability, parameter cross-talk, and sensitivity before moving toward higher-dimensional inversion.</li>
         </ul>
       </div>
-    </section>
-
-    <section id="visuals">
-      <div class="section-heading">
-        <h2>Research Visuals</h2>
-        <p>
-          This section is generated dynamically by JavaScript. You can later replace the image paths with your own figures, simulation plots, or project screenshots.
-        </p>
-      </div>
-
-      <div class="image-grid" id="dynamicImageGrid"></div>
-
-      <button class="small-button" id="shuffleImages" type="button">
-        Shuffle Visuals
-      </button>
     </section>
 
     <section id="projects">
@@ -777,111 +623,5 @@
   <footer>
     <p>© 2026 Shi Cheng. Academic portfolio for research, engineering, and scientific computing.</p>
   </footer>
-
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('#navMenu');
-
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('open');
-      menuToggle.classList.toggle('active', isOpen);
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    navMenu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        menuToggle.classList.remove('active');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    const researchImages = [
-      {
-        title: 'Magnetic Induction Layout',
-        description: 'TX/RX coil geometry and sector-wise underground sensing structure.',
-        src: 'assets/mi-layout.png'
-      },
-      {
-        title: 'Layered Conductivity Model',
-        description: 'Ten fixed depth intervals for interpretable conductivity inversion.',
-        src: 'assets/layered-model.png'
-      },
-      {
-        title: '3D Forward Simulation',
-        description: 'Voxel-style material distribution for strict electromagnetic modeling.',
-        src: 'assets/forward-model.png'
-      },
-      {
-        title: 'EEG Signal Reconstruction',
-        description: 'Deep-learning-based artifact removal and signal-quality evaluation.',
-        src: 'assets/eeg-denoising.png'
-      }
-    ];
-
-    function fallbackSvg(title) {
-      const safeTitle = encodeURIComponent(title);
-      const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#102a43"/>
-              <stop offset="100%" stop-color="#0b66c3"/>
-            </linearGradient>
-          </defs>
-          <rect width="800" height="480" fill="url(#g)"/>
-          <circle cx="640" cy="90" r="120" fill="rgba(255,255,255,0.12)"/>
-          <circle cx="120" cy="400" r="150" fill="rgba(255,255,255,0.10)"/>
-          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-            font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="white">
-            ${safeTitle.replace(/%20/g, ' ')}
-          </text>
-        </svg>`;
-      return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
-    }
-
-    function renderImages(items) {
-      const imageGrid = document.querySelector('#dynamicImageGrid');
-      imageGrid.innerHTML = '';
-
-      items.forEach((item) => {
-        const card = document.createElement('article');
-        card.className = 'card image-card';
-
-        const image = document.createElement('img');
-        image.src = item.src;
-        image.alt = item.title;
-        image.onerror = () => {
-          image.onerror = null;
-          image.src = fallbackSvg(item.title);
-        };
-
-        const content = document.createElement('div');
-        content.className = 'image-card-content';
-
-        const title = document.createElement('h3');
-        title.textContent = item.title;
-
-        const description = document.createElement('p');
-        description.textContent = item.description;
-
-        content.appendChild(title);
-        content.appendChild(description);
-        card.appendChild(image);
-        card.appendChild(content);
-        imageGrid.appendChild(card);
-      });
-    }
-
-    function shuffleArray(array) {
-      return [...array].sort(() => Math.random() - 0.5);
-    }
-
-    document.querySelector('#shuffleImages').addEventListener('click', () => {
-      renderImages(shuffleArray(researchImages));
-    });
-
-    renderImages(researchImages);
-  </script>
 </body>
 </html>

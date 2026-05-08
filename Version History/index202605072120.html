@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Shi Cheng | Personal Website</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background: #f5f7fa;
+      color: #222;
+    }
+
+    header {
+      background: #102a43;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    header p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 15px auto 0;
+    }
+
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #102a43;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #102a43;
+      border-bottom: 2px solid #d9e2ec;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      color: #243b53;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #075985;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin: 4px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      background: #102a43;
+      color: white;
+      padding: 25px;
+      margin-top: 50px;
+    }
+
+    a {
+      color: #0b66c3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Shi Cheng</h1>
+    <p>
+      Communications and Signal Processing researcher focusing on electromagnetic inversion,
+      magnetic induction sensing, and AI-based signal processing.
+    </p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I am interested in signal processing, electromagnetic forward and inverse modeling,
+        magnetic induction sensing, and artificial intelligence for scientific computing.
+      </p>
+
+      <p>
+        My recent work focuses on frequency-domain electromagnetic modeling, layered-media
+        inversion, voxel-based sensing structures, and AI-assisted reconstruction methods.
+        I have also worked on EEG artifact removal using deep learning models such as
+        convolutional autoencoders and variational autoencoders.
+      </p>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Research Interests</h2>
+    <div class="card">
+      <ul>
+        <li>Magnetic induction sensing and FDEM inversion</li>
+        <li>Layered underground electromagnetic modeling</li>
+        <li>3D forward modeling and voxelized inversion structures</li>
+        <li>Jacobian analysis, observability, and parameter cross-talk</li>
+        <li>AI-based signal reconstruction and EEG artifact removal</li>
+        <li>Wireless communication and digital signal processing</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Selected Projects</h2>
+
+    <div class="card">
+      <h3>Magnetic Induction Layered Inversion</h3>
+      <p>
+        This project studies frequency-domain magnetic induction sensing for underground
+        layered media. The work includes transmitter-receiver coil modeling, secondary-field
+        response analysis, Jacobian-based observability diagnosis, and constrained inversion.
+      </p>
+      <p>
+        <strong>Keywords:</strong>
+        <span class="tag">FDEM</span>
+        <span class="tag">Magnetic Induction</span>
+        <span class="tag">Layered Media</span>
+        <span class="tag">Inverse Problem</span>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>3D Electromagnetic Forward Modeling</h3>
+      <p>
+        This project explores a stricter 3D forward-modeling route for electromagnetic
+        sensing scenarios. The model considers practical transmitter and receiver positions,
+        underground discretization, and spatially varying material properties.
+      </p>
+      <p>
+        <strong>Keywords:</strong>
+        <span class="tag">3D Modeling</span>
+        <span class="tag">Voxel Grid</span>
+        <span class="tag">Forward Model</span>
+        <span class="tag">Simulation</span>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>EEG Artifact Removal Using Deep Learning</h3>
+      <p>
+        This project investigates deep-learning-based EEG denoising methods, including
+        convolutional autoencoders and variational autoencoders. The system evaluates
+        reconstruction quality using metrics such as RRMSE, PSD-RRMSE, and Pearson
+        correlation coefficient.
+      </p>
+      <p>
+        <strong>Keywords:</strong>
+        <span class="tag">EEG</span>
+        <span class="tag">Autoencoder</span>
+        <span class="tag">VAE</span>
+        <span class="tag">Signal Denoising</span>
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="card">
+      <h3>Programming</h3>
+      <p>
+        <span class="tag">Python</span>
+        <span class="tag">MATLAB</span>
+        <span class="tag">Git</span>
+        <span class="tag">GitHub</span>
+      </p>
+
+      <h3>Scientific Computing</h3>
+      <p>
+        <span class="tag">NumPy</span>
+        <span class="tag">SciPy</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">SimPEG</span>
+      </p>
+
+      <h3>Research Areas</h3>
+      <p>
+        <span class="tag">Signal Processing</span>
+        <span class="tag">Electromagnetic Modeling</span>
+        <span class="tag">Inverse Problems</span>
+        <span class="tag">Deep Learning</span>
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>
+        GitHub:
+        <a href="https://github.com/CS-LWR" target="_blank">
+          https://github.com/CS-LWR
+        </a>
+      </p>
+
+      <p>
+        Email:
+        <strong>your-email@example.com</strong>
+      </p>
+
+      <p>
+        CV:
+        <strong>Coming soon</strong>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Shi Cheng. Personal academic portfolio.</p>
+  </footer>
+
+</body>
+</html>
