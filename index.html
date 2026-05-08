@@ -3,260 +3,625 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Shi Cheng's academic portfolio website: communications and signal processing, electromagnetic inversion, magnetic induction sensing, and AI-based signal processing."
+  />
 
-  <title>Shi Cheng | Personal Website</title>
+  <title>Shi Cheng | Academic Portfolio</title>
 
   <style>
+    :root {
+      --bg: #f5f7fa;
+      --card-bg: #ffffff;
+      --primary: #102a43;
+      --primary-light: #243b53;
+      --accent: #0b66c3;
+      --accent-soft: #e0f2fe;
+      --accent-dark: #075985;
+      --text: #222222;
+      --muted: #52606d;
+      --border: #d9e2ec;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
-      background: #f5f7fa;
-      color: #222;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     header {
-      background: #102a43;
+      background:
+        linear-gradient(135deg, rgba(16, 42, 67, 0.96), rgba(36, 59, 83, 0.92)),
+        radial-gradient(circle at top left, rgba(14, 165, 233, 0.35), transparent 35%);
       color: white;
-      padding: 60px 20px;
+      padding: 90px 20px 80px;
       text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
     }
 
     header h1 {
       margin: 0;
-      font-size: 42px;
+      font-size: clamp(42px, 7vw, 68px);
+      letter-spacing: -1.5px;
+      line-height: 1.1;
     }
 
-    header p {
-      font-size: 18px;
-      max-width: 800px;
-      margin: 15px auto 0;
+    .subtitle {
+      margin: 18px auto 0;
+      max-width: 820px;
+      font-size: clamp(18px, 2vw, 22px);
+      color: #dbeafe;
+    }
+
+    .hero-description {
+      margin: 22px auto 0;
+      max-width: 780px;
+      font-size: 17px;
+      color: #e5eef7;
+    }
+
+    .hero-buttons {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--primary);
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: none;
     }
 
     nav {
-      background: white;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      padding: 14px 20px;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
     }
 
     nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #102a43;
-      font-weight: bold;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px 0;
     }
 
     section {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: 52px auto;
+      scroll-margin-top: 90px;
     }
 
-    .card {
-      background: white;
-      padding: 25px;
-      margin-bottom: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    .section-heading {
+      margin-bottom: 22px;
     }
 
     h2 {
-      color: #102a43;
-      border-bottom: 2px solid #d9e2ec;
-      padding-bottom: 8px;
+      margin: 0;
+      color: var(--primary);
+      font-size: 30px;
+      letter-spacing: -0.4px;
+    }
+
+    .section-heading p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 760px;
     }
 
     h3 {
-      color: #243b53;
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: var(--primary-light);
+      font-size: 21px;
+    }
+
+    h4 {
+      margin: 20px 0 8px;
+      color: var(--primary-light);
+      font-size: 16px;
+    }
+
+    p {
+      margin-top: 0;
     }
 
     ul {
       padding-left: 22px;
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(217, 226, 236, 0.7);
+    }
+
+    .card + .card {
+      margin-top: 22px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .tag-list {
+      margin-top: 16px;
     }
 
     .tag {
       display: inline-block;
-      background: #e0f2fe;
-      color: #075985;
-      padding: 5px 10px;
-      border-radius: 20px;
-      margin: 4px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      padding: 5px 11px;
+      border-radius: 999px;
+      margin: 4px 4px 4px 0;
       font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .highlight-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--accent);
+      padding: 18px 20px;
+      border-radius: 12px;
+      color: #334155;
+    }
+
+    .timeline-item {
+      padding-left: 18px;
+      border-left: 3px solid var(--border);
+    }
+
+    .timeline-item + .timeline-item {
+      margin-top: 24px;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 4px;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .contact-item {
+      padding: 18px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 6px;
     }
 
     footer {
       text-align: center;
-      background: #102a43;
+      background: var(--primary);
       color: white;
-      padding: 25px;
-      margin-top: 50px;
+      padding: 28px 20px;
+      margin-top: 60px;
     }
 
-    a {
-      color: #0b66c3;
+    footer p {
+      margin: 0;
+      color: #dbeafe;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        padding: 70px 18px 60px;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .nav-inner {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 
 <body>
-
   <header>
-    <h1>Shi Cheng</h1>
-    <p>
-      Communications and Signal Processing researcher focusing on electromagnetic inversion,
-      magnetic induction sensing, and AI-based signal processing.
-    </p>
+    <div class="hero-inner">
+      <h1>Shi Cheng</h1>
+      <p class="subtitle">
+        MSc Communications and Signal Processing | Electromagnetic Inversion | AI for Signal Processing
+      </p>
+      <p class="hero-description">
+        I build physically interpretable forward and inverse modeling workflows for magnetic induction sensing,
+        layered-media reconstruction, and scientific signal processing applications.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="button">View Projects</a>
+        <a href="#research-focus" class="button secondary">Research Focus</a>
+        <a href="#contact" class="button secondary">Contact</a>
+      </div>
+    </div>
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#research-focus">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>
-        I am interested in signal processing, electromagnetic forward and inverse modeling,
-        magnetic induction sensing, and artificial intelligence for scientific computing.
-      </p>
+  <main>
+    <section id="about">
+      <div class="section-heading">
+        <h2>About Me</h2>
+        <p>
+          A concise introduction to my academic background, research direction, and technical interests.
+        </p>
+      </div>
 
-      <p>
-        My recent work focuses on frequency-domain electromagnetic modeling, layered-media
-        inversion, voxel-based sensing structures, and AI-assisted reconstruction methods.
-        I have also worked on EEG artifact removal using deep learning models such as
-        convolutional autoencoders and variational autoencoders.
-      </p>
-    </div>
-  </section>
+      <div class="two-column">
+        <div class="card">
+          <p>
+            I am interested in signal processing, electromagnetic forward and inverse modeling,
+            magnetic induction sensing, and artificial intelligence for scientific computing.
+            My work focuses on building models that are not only computationally useful, but also
+            physically interpretable.
+          </p>
 
-  <section id="research">
-    <h2>Research Interests</h2>
-    <div class="card">
-      <ul>
-        <li>Magnetic induction sensing and FDEM inversion</li>
-        <li>Layered underground electromagnetic modeling</li>
-        <li>3D forward modeling and voxelized inversion structures</li>
-        <li>Jacobian analysis, observability, and parameter cross-talk</li>
-        <li>AI-based signal reconstruction and EEG artifact removal</li>
-        <li>Wireless communication and digital signal processing</li>
-      </ul>
-    </div>
-  </section>
+          <p>
+            My recent research direction is frequency-domain electromagnetic modeling for underground
+            sensing. In particular, I am developing simplified yet meaningful inversion structures that
+            estimate conductivity distributions from multi-frequency transmitter-receiver coil responses.
+          </p>
 
-  <section id="projects">
-    <h2>Selected Projects</h2>
+          <p>
+            I have also worked on EEG artifact removal using deep learning models, including
+            convolutional autoencoders and variational autoencoders, with evaluation based on
+            reconstruction error, spectral distortion, and correlation-based metrics.
+          </p>
+        </div>
 
-    <div class="card">
-      <h3>Magnetic Induction Layered Inversion</h3>
-      <p>
-        This project studies frequency-domain magnetic induction sensing for underground
-        layered media. The work includes transmitter-receiver coil modeling, secondary-field
-        response analysis, Jacobian-based observability diagnosis, and constrained inversion.
-      </p>
-      <p>
-        <strong>Keywords:</strong>
-        <span class="tag">FDEM</span>
-        <span class="tag">Magnetic Induction</span>
-        <span class="tag">Layered Media</span>
-        <span class="tag">Inverse Problem</span>
-      </p>
-    </div>
+        <div class="card">
+          <h3>Current Interests</h3>
+          <div class="tag-list">
+            <span class="tag">Magnetic Induction</span>
+            <span class="tag">FDEM</span>
+            <span class="tag">Inverse Problems</span>
+            <span class="tag">3D Forward Modeling</span>
+            <span class="tag">Scientific Computing</span>
+            <span class="tag">EEG Denoising</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-      <h3>3D Electromagnetic Forward Modeling</h3>
-      <p>
-        This project explores a stricter 3D forward-modeling route for electromagnetic
-        sensing scenarios. The model considers practical transmitter and receiver positions,
-        underground discretization, and spatially varying material properties.
-      </p>
-      <p>
-        <strong>Keywords:</strong>
-        <span class="tag">3D Modeling</span>
-        <span class="tag">Voxel Grid</span>
-        <span class="tag">Forward Model</span>
-        <span class="tag">Simulation</span>
-      </p>
-    </div>
+    <section id="education">
+      <div class="section-heading">
+        <h2>Education</h2>
+        <p>
+          Academic training in communication engineering, digital communications, signal processing,
+          and scientific computation.
+        </p>
+      </div>
 
-    <div class="card">
-      <h3>EEG Artifact Removal Using Deep Learning</h3>
-      <p>
-        This project investigates deep-learning-based EEG denoising methods, including
-        convolutional autoencoders and variational autoencoders. The system evaluates
-        reconstruction quality using metrics such as RRMSE, PSD-RRMSE, and Pearson
-        correlation coefficient.
-      </p>
-      <p>
-        <strong>Keywords:</strong>
-        <span class="tag">EEG</span>
-        <span class="tag">Autoencoder</span>
-        <span class="tag">VAE</span>
-        <span class="tag">Signal Denoising</span>
-      </p>
-    </div>
-  </section>
+      <div class="card">
+        <div class="timeline-item">
+          <h3>MSc Communications and Signal Processing</h3>
+          <p class="meta">University of Manchester</p>
+          <p>
+            Focused on digital communications, signal processing, machine learning, and research-oriented
+            scientific programming. Dissertation work focused on AI-based EEG artifact removal and signal reconstruction.
+          </p>
+        </div>
 
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="card">
-      <h3>Programming</h3>
-      <p>
-        <span class="tag">Python</span>
-        <span class="tag">MATLAB</span>
-        <span class="tag">Git</span>
-        <span class="tag">GitHub</span>
-      </p>
+        <div class="timeline-item">
+          <h3>BEng Communication Engineering</h3>
+          <p class="meta">Xi'an University of Architecture and Technology</p>
+          <p>
+            Built a foundation in communication systems, electromagnetic theory, signal processing,
+            programming, and engineering mathematics.
+          </p>
+        </div>
+      </div>
+    </section>
 
-      <h3>Scientific Computing</h3>
-      <p>
-        <span class="tag">NumPy</span>
-        <span class="tag">SciPy</span>
-        <span class="tag">Matplotlib</span>
-        <span class="tag">SimPEG</span>
-      </p>
+    <section id="research-focus">
+      <div class="section-heading">
+        <h2>Research Focus</h2>
+        <p>
+          My current work aims to connect physically rigorous electromagnetic modeling with practical,
+          explainable inversion strategies.
+        </p>
+      </div>
 
-      <h3>Research Areas</h3>
-      <p>
-        <span class="tag">Signal Processing</span>
-        <span class="tag">Electromagnetic Modeling</span>
-        <span class="tag">Inverse Problems</span>
-        <span class="tag">Deep Learning</span>
-      </p>
-    </div>
-  </section>
+      <div class="card">
+        <div class="highlight-box">
+          <p>
+            My current magnetic induction inversion method uses four sector-wise simplified 1D inversions.
+            The underground region is divided horizontally according to transmitter-receiver geometry and
+            vertically into ten fixed, evenly distributed depth intervals. The inversion estimates conductivity
+            for each sector-depth cell, while magnetic permeability and permittivity are treated as known parameters.
+          </p>
+        </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>
-        GitHub:
-        <a href="https://github.com/CS-LWR" target="_blank">
-          https://github.com/CS-LWR
-        </a>
-      </p>
+        <h4>Core Methodological Direction</h4>
+        <ul>
+          <li>Use a strict 3D forward model to generate physically meaningful electromagnetic responses.</li>
+          <li>Use a simplified sector-wise layered inversion model to keep the inverse problem interpretable.</li>
+          <li>Estimate conductivity distribution using multi-frequency magnetic induction measurements.</li>
+          <li>Analyze observability, parameter cross-talk, and sensitivity before moving toward higher-dimensional inversion.</li>
+        </ul>
+      </div>
+    </section>
 
-      <p>
-        Email:
-        <strong>your-email@example.com</strong>
-      </p>
+    <section id="projects">
+      <div class="section-heading">
+        <h2>Selected Projects</h2>
+        <p>
+          Representative research and engineering projects related to electromagnetic inversion,
+          forward modeling, and AI-based signal reconstruction.
+        </p>
+      </div>
 
-      <p>
-        CV:
-        <strong>Coming soon</strong>
-      </p>
-    </div>
-  </section>
+      <div class="project-grid">
+        <article class="card project-card">
+          <h3>Magnetic Induction Layered Inversion</h3>
+          <p>
+            This project studies frequency-domain magnetic induction sensing for underground layered media.
+            It focuses on conductivity inversion using transmitter-receiver coil responses and physically
+            meaningful constraints.
+          </p>
+          <ul>
+            <li>Designed a sector-wise layered inversion strategy with fixed depth intervals.</li>
+            <li>Modeled multi-frequency secondary-field responses from coil measurements.</li>
+            <li>Analyzed observability and parameter cross-talk using Jacobian-based diagnostics.</li>
+          </ul>
+          <div class="tag-list">
+            <span class="tag">FDEM</span>
+            <span class="tag">Magnetic Induction</span>
+            <span class="tag">Layered Media</span>
+            <span class="tag">Inverse Problem</span>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <h3>3D Electromagnetic Forward Modeling</h3>
+          <p>
+            This project explores a stricter 3D forward-modeling route for electromagnetic sensing scenarios.
+            The model considers transmitter and receiver geometry, underground discretization, and spatially
+            varying electromagnetic material properties.
+          </p>
+          <ul>
+            <li>Formulated a frequency-domain electromagnetic forward workflow.</li>
+            <li>Considered practical coil layout, receiver flux calculation, and boundary conditions.</li>
+            <li>Built a foundation for validating simplified inversion models using stricter simulation data.</li>
+          </ul>
+          <div class="tag-list">
+            <span class="tag">3D Modeling</span>
+            <span class="tag">Voxel Grid</span>
+            <span class="tag">Forward Model</span>
+            <span class="tag">Simulation</span>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <h3>EEG Artifact Removal Using Deep Learning</h3>
+          <p>
+            This project investigates deep-learning-based EEG denoising methods, including convolutional
+            autoencoders and variational autoencoders for artifact removal and signal reconstruction.
+          </p>
+          <ul>
+            <li>Implemented CNN-AE and VAE-style reconstruction models for EEG denoising.</li>
+            <li>Evaluated performance using RRMSE, PSD-RRMSE, and Pearson correlation coefficient.</li>
+            <li>Explored deployment-oriented workflows including segmentation, normalization, and inference.</li>
+          </ul>
+          <div class="tag-list">
+            <span class="tag">EEG</span>
+            <span class="tag">Autoencoder</span>
+            <span class="tag">VAE</span>
+            <span class="tag">Signal Denoising</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-heading">
+        <h2>Technical Skills</h2>
+        <p>
+          Tools and research areas that support my modeling, simulation, and signal-processing work.
+        </p>
+      </div>
+
+      <div class="skill-grid">
+        <div class="card">
+          <h3>Programming</h3>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Scientific Computing</h3>
+          <div class="tag-list">
+            <span class="tag">NumPy</span>
+            <span class="tag">SciPy</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">SimPEG</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Research Areas</h3>
+          <div class="tag-list">
+            <span class="tag">Signal Processing</span>
+            <span class="tag">Electromagnetic Modeling</span>
+            <span class="tag">Inverse Problems</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Wireless Communication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-heading">
+        <h2>Contact</h2>
+        <p>
+          Links for academic communication, project repositories, and future CV access.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="contact-grid">
+          <div class="contact-item">
+            <strong>GitHub</strong>
+            <a href="https://github.com/CS-LWR" target="_blank" rel="noopener noreferrer">
+              github.com/CS-LWR
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <strong>Email</strong>
+            <a href="mailto:your-email@example.com">your-email@example.com</a>
+          </div>
+
+          <div class="contact-item">
+            <strong>CV</strong>
+            <a href="Shi_Cheng_CV.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2026 Shi Cheng. Personal academic portfolio.</p>
+    <p>© 2026 Shi Cheng. Academic portfolio for research, engineering, and scientific computing.</p>
   </footer>
-
 </body>
 </html>
